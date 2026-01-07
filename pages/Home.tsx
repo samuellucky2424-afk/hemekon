@@ -106,26 +106,25 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {featuredProducts.map(product => (
-              <div key={product.id} className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
-                <div className="aspect-[4/3] bg-gray-100 relative overflow-hidden">
+              <div key={product.id} className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden group border border-gray-100 flex flex-col h-full">
+                <div className="aspect-square bg-white relative overflow-hidden flex items-center justify-center p-4">
                   <img 
                     src={product.image} 
                     alt={product.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-gray-700">
-                    {product.category}
+                  <div className="absolute top-2 right-2 bg-orange-50 text-orange-600 px-2 py-0.5 rounded text-[10px] font-bold border border-orange-100">
+                    -5%
                   </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-gray-900 mb-1 truncate">{product.name}</h3>
-                  <p className="text-gray-500 text-xs mb-3 line-clamp-2">{product.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-brand-700">₦{product.price.toLocaleString()}</span>
-                    <Link to="/shop" className="text-sm font-medium text-brand-600 hover:text-brand-800">
-                      View Details
+                <div className="p-4 flex-grow flex flex-col">
+                  <h3 className="font-medium text-gray-900 mb-1 line-clamp-2 h-10 text-sm md:text-base leading-tight">{product.name}</h3>
+                  <div className="mt-auto pt-2 flex items-center justify-between">
+                    <span className="text-base md:text-lg font-bold text-gray-900">₦{product.price.toLocaleString()}</span>
+                    <Link to="/shop" className="text-xs font-medium text-brand-600 hover:text-brand-800">
+                      View
                     </Link>
                   </div>
                 </div>
